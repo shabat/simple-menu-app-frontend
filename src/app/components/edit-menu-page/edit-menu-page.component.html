@@ -1,0 +1,58 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Menu name</mat-label>
+      <input
+        matInput
+        ngModel
+        required
+        name="menuName"
+      >
+    </mat-form-field>
+    <div *ngFor="let item of menuItems; let i = index">
+        <h3>
+            {{item}} menu item
+        </h3>
+        <div class="formSection" [ngModelGroup]="item">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input
+                    matInput
+                    ngModel
+                    required
+                    name="name"
+                >
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Icon</mat-label>
+                <mat-select
+                    [(ngModel)]="selectedIcons[i]"
+                    name="icon"
+                    required
+                >
+                    <mat-select-trigger>
+                        <mat-icon>
+                            {{selectedIcons[i]}}
+                        </mat-icon>
+                    </mat-select-trigger>
+                    <mat-option *ngFor="let icon of iconsList" [value]="icon">
+                        <mat-icon>
+                            {{icon}}
+                        </mat-icon>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Price</mat-label>
+                <input
+                    type="number"
+                    matInput
+                    ngModel
+                    required
+                    name="price"
+                >
+            </mat-form-field>
+        </div>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>

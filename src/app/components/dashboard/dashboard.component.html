@@ -1,0 +1,25 @@
+<div class="grid-container">
+  <div *ngIf="authService.isAdmin" class="edit-button-container">
+    <button mat-fab color="accent" aria-label="Add" (click)="onRestaurantAdd()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <h1 *ngIf="restaurants.length < 1">No restaurants</h1>
+  <mat-nav-list *ngIf="restaurants.length >= 1">
+    <a
+      mat-list-item
+      *ngFor="let restaurant of restaurants"
+      [routerLink]="['/restaurant', restaurant.id]"
+      [queryParams]="{
+        isAdmin: authService.isAdmin
+      }"
+    >
+      <mat-icon matListIcon>restaurant</mat-icon>
+      <h3 matLine> {{restaurant.name}} </h3>
+      <p matLine>
+        <span> {{restaurant.menu && restaurant.menu.name}} </span>
+      </p>
+    </a>
+  </mat-nav-list>
+</div>
+

@@ -1,0 +1,38 @@
+<mat-card>
+    <div *ngIf="authService.isAdmin" class="edit-button-container">
+        <button
+          mat-mini-fab
+          color="warn"
+          aria-label="Delete"
+          matTooltip="Delete restaurant"
+          (click)="onDeleteRestaurant()"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Edit"
+          routerLink="edit"
+          queryParamsHandling="preserve"
+          matTooltip="Edit menu"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+    </div>
+    <mat-card-title>
+        {{ restaurant && restaurant.name }}
+    </mat-card-title>
+    <mat-card-subtitle>
+        {{ restaurant && restaurant.menu && restaurant.menu.name }}
+    </mat-card-subtitle>
+    <mat-card-content *ngIf="restaurant && restaurant.menu">
+        <mat-list>
+            <mat-list-item *ngFor="let dish of restaurant.menu.dishes">
+                <mat-icon mat-list-icon>{{dish.icon}}</mat-icon>
+                <div mat-line>{{dish.name}}</div>
+                <div mat-line>Price: {{dish.price}} $ </div>
+              </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

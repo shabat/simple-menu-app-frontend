@@ -1,0 +1,18 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <div>
+    <h3>
+      Create Restaurant
+    </h3>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        ngModel
+        name="name"
+      >
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </div>
+</form>
