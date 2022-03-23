@@ -77,7 +77,7 @@ export class RestaurantService{
         })
         .subscribe(response => {
           this.openSnackBar(`Menu updated`)
-          this.router.navigate(['/'], {
+          this.router.navigate([`/restaurant/${restaurantId}`], {
             queryParamsHandling: 'preserve'
           });
         })
