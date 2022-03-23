@@ -4,5 +4,5 @@ Simple menu app for Tastewise. To work correctly needs [backend](https://github.
 To run execute
 ```angular2html
 # npm i
-# ng serve
+# npm run start
 ```
