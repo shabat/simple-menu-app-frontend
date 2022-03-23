@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { RestaurantService } from 'src/app/services/restaurant.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Restaurant } from '../../models/restaurant.model';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
+export class DashboardComponent implements OnInit {
   isAdmin: boolean;
   restaurants: Restaurant[] = [];
 
@@ -29,13 +29,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       this.restaurants = res;
     });
 
-
     if (this.route.snapshot.queryParams['error']) {
       this.openSnackBar('Only admins can edit menus')
     }
-  }
 
-  ngAfterViewInit() {
     this.restaurants = this.restaurantService.restaurants;
   }
 

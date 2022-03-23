@@ -61,11 +61,17 @@ export class RestaurantService{
         .get<Restaurant>(`http://localhost:3000/restaurants/${id}`)
     }
 
-    updateMenuItem(restaurantId: number, menuName: string,  dishes: { name: string, price: number, icon: string }[]) {
+    updateMenuItem(
+      restaurantId: number,
+      restaurantName: string,
+      menuName: string,
+      dishes: { name: string, price: number, icon: string }[]
+    ) {
         // const currentRestaurant = this.getRestaurant(restaurantId);
         // currentRestaurant!.menu!.dishes = dishes
 
         this.http.put(`http://localhost:3000/restaurants/${restaurantId}`, {
+          restaurantName,
           name: menuName,
           dishes
         })

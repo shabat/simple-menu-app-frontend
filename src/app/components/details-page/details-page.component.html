@@ -26,7 +26,7 @@
     <mat-card-subtitle>
         {{ restaurant && restaurant.menu && restaurant.menu.name }}
     </mat-card-subtitle>
-    <mat-card-content *ngIf="restaurant && restaurant.menu">
+    <mat-card-content *ngIf="restaurant && restaurant.menu && restaurant.menu.dishes">
         <mat-list>
             <mat-list-item *ngFor="let dish of restaurant.menu.dishes">
                 <mat-icon mat-list-icon>{{dish.icon}}</mat-icon>

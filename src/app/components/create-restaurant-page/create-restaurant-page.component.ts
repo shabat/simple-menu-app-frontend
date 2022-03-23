@@ -17,7 +17,11 @@ export class CreateRestaurantPageComponent implements OnInit {
   }
 
   onSubmit() {
-    this.restaurantService.onCreateRestaurant(this.form.value.name, this.form.value.menuName)
+    if (!this.form.valid) {
+      console.error('Form not valid')
+    } else {
+      this.restaurantService.onCreateRestaurant(this.form.value.name, this.form.value.menuName)
+    }
   }
 
 }

@@ -32,6 +32,7 @@ export class EditMenuPageComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.form.setValue(
         {
+          restaurantName: this.restaurant?.name,
           menuName: this.restaurant?.menu?.name,
           First: this.restaurant?.menu?.dishes[0],
           Second: this.restaurant?.menu?.dishes[1],
@@ -42,9 +43,21 @@ export class EditMenuPageComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
-    const menuName = this.form.value.menuName;
-    delete this.form.value.menuName;
-    this.restaurantService.updateMenuItem(this.restaurant!.id, menuName,  Object.values(this.form.value))
+    if (!this.form.valid) {
+      console.error('Form not valid')
+    } else {
+      const restaurantName = this.form.value.restaurantName;
+      const menuName = this.form.value.menuName;
+      delete this.form.value.restaurantName;
+      delete this.form.value.menuName;
+
+      this.restaurantService.updateMenuItem(
+        this.restaurant!.id,
+        restaurantName,
+        menuName,
+        Object.values(this.form.value)
+      )
+    }
   }
 
   iconsList: string[] = [

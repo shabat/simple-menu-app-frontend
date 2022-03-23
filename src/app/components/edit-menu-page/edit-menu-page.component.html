@@ -1,5 +1,14 @@
 <form (ngSubmit)="onSubmit()" #form="ngForm">
     <mat-form-field appearance="fill">
+      <mat-label>Restaurant name</mat-label>
+      <input
+        matInput
+        ngModel
+        required
+        name="restaurantName"
+      >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Menu name</mat-label>
       <input
         matInput
