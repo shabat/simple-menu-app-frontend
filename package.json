@@ -1,5 +1,5 @@
 {
-  "name": "simple-menu-app",
+  "name": "simple-menu-app-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

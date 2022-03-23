@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "simple-menu-app": {
+    "simple-menu-app-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/simple-menu-app",
+            "outputPath": "dist/simple-menu-app-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "simple-menu-app:build:production"
+              "browserTarget": "simple-menu-app-frontend:build:production"
             },
             "development": {
-              "browserTarget": "simple-menu-app:build:development"
+              "browserTarget": "simple-menu-app-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "simple-menu-app:build"
+            "browserTarget": "simple-menu-app-frontend:build"
           }
         },
         "test": {
@@ -109,5 +109,5 @@
       }
     }
   },
-  "defaultProject": "simple-menu-app"
+  "defaultProject": "simple-menu-app-frontend"
 }
