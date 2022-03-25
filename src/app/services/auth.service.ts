@@ -1,22 +1,19 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
 })
-export class AuthService implements OnInit {
+export class AuthService {
     isAdmin: boolean;
 
     constructor(
         private route: ActivatedRoute,
         private router: Router
     ) {
-        this.isAdmin = this.route.snapshot.queryParams['isAdmin'] === 'true' ? true : false
-    }
-
-    ngOnInit(): void {
+        this.isAdmin = false;
         this.route.queryParams.subscribe((params: Params) => {
-          this.isAdmin = params['isAdmin'] === 'true' ? true : false
+          this.isAdmin = params['isAdmin'] === 'true'
         })
     }
 

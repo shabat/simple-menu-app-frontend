@@ -33,10 +33,10 @@ export class EditMenuPageComponent implements OnInit, AfterViewInit {
       this.form.setValue(
         {
           restaurantName: this.restaurant?.name,
-          menuName: this.restaurant?.menu?.name,
-          First: this.restaurant?.menu?.dishes[0],
-          Second: this.restaurant?.menu?.dishes[1],
-          Third: this.restaurant?.menu?.dishes[2]
+          menuName: this.restaurant?.menu?.name || '',
+          First: this.restaurant?.menu?.dishes[0] || [],
+          Second: this.restaurant?.menu?.dishes[1] || [],
+          Third: this.restaurant?.menu?.dishes[2] || []
         }
       )
     })
